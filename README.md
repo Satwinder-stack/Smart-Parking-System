@@ -1,0 +1,1 @@
+This is an invention I made during the summer of my second year. This creates a user-friendly system wherein any user can reserve a spot in any spot they want. This removes the difficulty of looking for a vacant spot which can potentially stop overall stress and traffic from looking for a spot. All credits are given to Satwinder Jeerh (me). 
