@@ -89,7 +89,7 @@ document.getElementById('start_time').addEventListener('change', function() {
     const timeDiff = (selectedDateTime - currentTime) / (1000 * 60);
     
     if (timeDiff < -10) {
-        showPopup('This time slot has passed. Please reload the page to see current available times.');
+        showPopup('This time slot has passed. Please choose a different start date.');
         this.value = formattedTime; // Reset to current time
     }
     updateEndDate();
@@ -111,7 +111,7 @@ document.getElementById('date').addEventListener('change', function() {
     const timeDiff = (selectedDateTime - currentTime) / (1000 * 60);
     
     if (timeDiff < -10) {
-        showPopup('This time slot has passed. Please reload the page to see current available times.');
+        showPopup('This time slot has passed. Please choose a different start date.');
         this.value = formattedDate; // Reset to current date
         document.getElementById('start_time').value = formattedTime; // Reset to current time
     } else {
@@ -240,7 +240,7 @@ document.getElementById('reservationForm').addEventListener('submit', function(e
 
     if (timeDiff < -10) {
         e.preventDefault();
-        showPopup('This time slot has passed. Please reload the page to see current available times.');
+        showPopup('This time slot has passed. Please choose a different start date.');
         return;
     }
 
