@@ -1,0 +1,2492 @@
+/* General styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2c3e50;
+    min-height: 100vh;
+}
+
+/* Navigation styles */
+.navbar {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    padding: 1.2rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-brand {
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0.5rem 1.2rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.nav-brand:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-link {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.nav-link.active {
+    background: #3498db;
+    color: white;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.nav-link.active:hover {
+    background: #2980b9;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1.2rem 1.5rem;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .nav-brand {
+        font-size: 1.6rem;
+        gap: 0.6rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .nav-links {
+        gap: 0.5rem;
+        padding: 0.4rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav-link {
+        padding: 1.2rem 2rem 1.2rem 2rem;
+        font-size: 1rem;
+        min-width: 160px;
+        text-align: center;
+    }
+}
+
+/* Tablet responsive styles */
+@media (max-width: 820px) {
+    .navbar {
+        padding: 1.2rem 1.5rem;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .nav-brand {
+        font-size: 1.6rem;
+        gap: 0.6rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .nav-links {
+        gap: 0.5rem;
+        padding: 0.4rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav-link {
+        padding: 1.2rem 2rem 1.2rem 2rem;
+        font-size: 1rem;
+        min-width: 160px;
+        text-align: center;
+    }
+}
+
+/* Animation for active link */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(52, 152, 219, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    }
+}
+
+.nav-link.active {
+    animation: glow 2s infinite;
+}
+
+/* Authentication styles */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.auth-box {
+    background-color: #34495e;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-box h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    color: white;
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #2c3e50;
+    color: white;
+}
+
+.form-group input:focus {
+    outline: 2px solid #3498db;
+}
+
+.auth-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.auth-button:hover {
+    background-color: #2980b9;
+}
+
+.auth-links {
+    text-align: center;
+    margin-top: 1rem;
+    color: white;
+}
+
+.auth-links a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+/* Container for the fieldsets */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #34495e;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Style for each line of fieldsets */
+.line {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    position: relative;
+}
+
+/* Road styling */
+.line:first-child::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #7f8c8d;
+    z-index: 1;
+}
+
+/* Road markings */
+.line:first-child::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 25px;
+    width: 100%;
+    height: 4px;
+    background: repeating-linear-gradient(
+        to right,
+        #fff 0,
+        #fff 50px,
+        transparent 50px,
+        transparent 100px
+    );
+    z-index: 2;
+}
+
+/* Fieldset styling */
+fieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    flex: 1;
+    min-width: 100px;
+    padding-top: 5em;
+    padding-bottom: 5em;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    background-color: #ecf0f1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+    position: relative;
+    z-index: 3;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+fieldset:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #bdc3c7;
+}
+
+/* Parking spot numbers */
+fieldset::before {
+    content: 'P';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    font-size: 0.8em;
+    color: #7f8c8d;
+}
+
+/* Different colors for each row */
+.f1 {
+    background-color: #e74c3c;
+    color: white;
+    margin-bottom: 4em;
+}
+
+.f2 {
+    background-color: #2ecc71;
+    color: white;
+    margin-top: 3em;
+}
+
+/* Header styling */
+header {
+    background-color: #2c3e50;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    color: white;
+    text-align: center;
+    margin: 0;
+}
+
+/* Footer styling */
+footer {
+    background-color: #2c3e50;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+}
+
+/* Add these new styles to your existing CSS file */
+
+.error-message {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.welcome-text {
+    color: white;
+    margin-right: 1rem;
+}
+
+.spot-form {
+    margin-top: 10px;
+}
+
+.spot-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.spot-button:hover {
+    background-color: #2980b9;
+}
+
+/* Status indicators */
+.available {
+    background-color: #2ecc71;
+}
+
+.occupied {
+    background-color: #e74c3c;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: url('../images/parking area.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 1;
+    margin-top: 8em;
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.welcome-message {
+    font-size: 1.1rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.parking-info {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+}
+
+.info-card {
+    background: rgba(30, 27, 75, 0.85);
+    backdrop-filter: blur(3px);
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+    background: rgba(49, 46, 129, 0.9);
+}
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #7c3aed;
+}
+
+.info-card h3 {
+    color: #e2e8f0;
+    margin: 0 0 1rem 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.info-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: #a78bfa;
+    border-radius: 2px;
+}
+
+.info-card .count {
+    color: #a78bfa;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+    font-family: 'Roboto', sans-serif;
+    display: inline-block;
+}
+
+.info-card .button-group {
+    margin-top: 1rem;
+}
+
+.info-card .find-time-btn {
+    background: #7c3aed;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: 100%;
+    margin: 0.5rem 0;
+}
+
+.info-card .find-time-btn:hover {
+    background: #6d28d9;
+    transform: translateY(-2px);
+}
+
+.info-card .find-time-btn:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .info-card {
+        min-width: 100%;
+        max-width: 300px;
+        margin: 0.5rem 0;
+    }
+
+    .info-card .count {
+        font-size: 2rem;
+    }
+
+    .info-card h3 {
+        font-size: 1.1rem;
+    }
+}
+
+.parking-grid {
+    background: rgba(30, 27, 75, 0.85);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(3px);
+}
+
+.parking-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.road {
+    height: 80px;
+    background: rgba(127, 140, 141, 0.85);
+    margin: 2rem 0;
+    position: relative;
+    border-radius: 5px;
+    backdrop-filter: blur(3px);
+}
+
+.road-markings {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: repeating-linear-gradient(
+        to right,
+        #fff 0,
+        #fff 50px,
+        transparent 50px,
+        transparent 100px
+    );
+}
+
+.parking-spot {
+    flex: 1;
+    min-height: 120px;
+    background: #2ecc71; /* Green for available */
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.parking-spot.occupied {
+    background: #e74c3c; /* Red for occupied */
+}
+
+.parking-spot.reserved {
+    background: #f1c40f; /* Yellow for reserved */
+}
+
+.parking-spot:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.spot-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.spot-status {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 0.5rem;
+}
+
+footer {
+    background: rgba(30, 27, 75, 0.95);
+    backdrop-filter: blur(3px);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    position: relative;
+    z-index: 1;
+    border-top: 2px solid rgba(167, 139, 250, 0.2);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    text-align: left;
+    padding: 0 1rem;
+}
+
+@media (min-width: 1200px) {
+    .footer-content {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+.footer-section {
+    color: #ffffff;
+}
+
+.footer-section h3 {
+    color: #a78bfa;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-section p {
+    margin: 0.5rem 0;
+    color: #e2e8f0;
+    font-size: 0.95rem;
+}
+
+.footer-section a {
+    color: #a78bfa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #c084fc;
+}
+
+.footer-bottom {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(167, 139, 250, 0.2);
+    color: #e2e8f0;
+    font-size: 0.9rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.social-link {
+    color: #a78bfa;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    color: #c084fc;
+    transform: translateY(-2px);
+}
+
+.developer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.dev-link {
+    color: #a78bfa;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    padding: 0.5rem;
+    border-radius: 5px;
+    background: rgba(167, 139, 250, 0.1);
+}
+
+.dev-link:hover {
+    background: rgba(167, 139, 250, 0.2);
+    transform: translateX(5px);
+    color: #c084fc;
+}
+
+.dev-link i {
+    font-size: 1.2rem;
+}
+
+.developer-credit {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #a78bfa;
+}
+
+.developer-credit a {
+    color: #c084fc;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.developer-credit a:hover {
+    color: #e9d5ff;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .developer-links {
+        align-items: center;
+    }
+
+    .dev-link {
+        width: 200px;
+        justify-content: center;
+    }
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+
+.reservations-list {
+    margin-top: 20px;
+}
+
+.reservation-item {
+    background-color: #f8f9fa;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border-left: 4px solid #3498db;
+}
+
+.reservation-item.ongoing {
+    border-left-color: #2ecc71;
+}
+
+.reservation-item.reserved {
+    border-left-color: #f1c40f;
+}
+
+.reservation-date {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.reservation-time {
+    color: #7f8c8d;
+}
+
+.reservation-status {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    margin-left: 10px;
+}
+
+.reservation-status.ongoing {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.reservation-status.reserved {
+    background-color: #f1c40f;
+    color: white;
+}
+
+.reservation-status.ongoing {
+    background-color: #2ecc71;
+    color: white;
+}
+
+#spotNumber {
+    font-size: 1.2em;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.find-time-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.find-time-btn:hover {
+    background-color: #2980b9;
+}
+
+.reserve-btn {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+.reserve-btn:hover {
+    background-color: #27ae60;
+}
+
+#nearestTimeResult {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+#nearestTimeResult p {
+    margin: 0.5rem 0;
+}
+
+/* Add these new styles before the existing styles */
+.sliding-panel {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background: white;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+    padding: 20px;
+    overflow-y: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: right 0.3s ease-in-out, visibility 0s linear 0.3s, opacity 0.3s ease-in-out;
+}
+
+.sliding-panel.active {
+    right: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: right 0.3s ease-in-out, visibility 0s linear 0s, opacity 0.3s ease-in-out;
+}
+
+.sliding-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.sliding-panel-header h2 {
+    margin: 0;
+    color: #2c3e50;
+}
+
+.sliding-panel-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #7f8c8d;
+}
+
+.sliding-panel-close:hover {
+    color: #2c3e50;
+}
+
+.sliding-panel-content {
+    color: #2c3e50;
+}
+
+.sliding-panel-content p {
+    margin: 10px 0;
+}
+
+.sliding-panel-content strong {
+    color: #34495e;
+}
+
+/* Add overlay for sliding panel */
+.panel-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+.panel-overlay.active {
+    display: block;
+}
+
+.suggestions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.suggestion-item {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.suggestion-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.suggestion-item.highlighted {
+    background: #e3f2fd;
+    border-color: #90caf9;
+}
+
+.suggestion-item h3 {
+    color: #1976d2;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.suggestion-item p {
+    margin: 0.5rem 0;
+}
+
+.suggestion-item .reserve-btn {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.show-more-btn {
+    background: none;
+    border: 2px solid #3498db;
+    color: #3498db;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    margin: 0.5rem 0;
+}
+
+.show-more-btn:hover {
+    background: #3498db;
+    color: white;
+}
+
+.more-suggestions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* Add these new styles */
+.spot-header {
+    font-size: 1.2em;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e3f2fd;
+}
+
+.reservations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.reservation-item {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.reservation-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.reservation-item.ongoing {
+    background: #e3f2fd;
+    border-color: #90caf9;
+}
+
+.reservation-item.reserved {
+    background: #fff3e0;
+    border-color: #ffb74d;
+}
+
+.reservation-date {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.reservation-time {
+    color: #34495e;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.reservation-status {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-left: auto;
+}
+
+.reservation-status.ongoing {
+    background-color: #2196f3;
+    color: white;
+}
+
+.reservation-status.reserved {
+    background-color: #ff9800;
+    color: white;
+}
+
+.no-reservations {
+    text-align: center;
+    padding: 2rem;
+    color: #7f8c8d;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px dashed #e9ecef;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.find-time-btn {
+    width: 100%;
+    margin: 0;
+}
+
+#vacantSpotsResult {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+.vacant-spot-item {
+    background: rgba(46, 204, 113, 0.1); /* Light green background */
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 2px solid #2ecc71; /* Green border */
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(46, 204, 113, 0.2);
+}
+
+.vacant-spot-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(46, 204, 113, 0.3);
+    background: rgba(46, 204, 113, 0.15);
+}
+
+.vacant-spot-item h3 {
+    color: #27ae60; /* Darker green for the spot number */
+    margin: 0 0 0.8rem 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(46, 204, 113, 0.3);
+    padding-bottom: 0.5rem;
+}
+
+.vacant-spot-item p {
+    margin: 0.8rem 0;
+    color: #2c3e50;
+    font-size: 1.1rem;
+}
+
+.vacant-spot-item p strong {
+    color: #27ae60;
+}
+
+.vacant-spot-item .reserve-btn {
+    width: 100%;
+    margin-top: 1rem;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.vacant-spot-item .reserve-btn:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(46, 204, 113, 0.3);
+}
+
+.no-vacant-spots {
+    text-align: center;
+    padding: 2rem;
+    color: #7f8c8d;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px dashed #e9ecef;
+}
+
+/* Header/Navbar Styles */
+.navbar {
+    background: rgba(30, 27, 75, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1.2rem 2.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(167, 139, 250, 0.2);
+    transition: all 0.3s ease;
+}
+
+.navbar:hover {
+    background: rgba(30, 27, 75, 0.98);
+    box-shadow: 0 4px 25px rgba(167, 139, 250, 0.15);
+}
+
+.nav-brand {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    background: rgba(167, 139, 250, 0.1);
+    margin-right: 1em;
+}
+
+.nav-logo {
+    height: 40px;
+    width: auto;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.nav-brand:hover .nav-logo {
+    transform: scale(1.05);
+}
+
+.nav-brand span {
+    display: inline-block;
+}
+
+.nav-brand:hover {
+    color: #a78bfa;
+    transform: translateY(-2px);
+    background: rgba(167, 139, 250, 0.15);
+    box-shadow: 0 4px 15px rgba(167, 139, 250, 0.2);
+}
+
+/* Remove the emoji since we now have a logo */
+.nav-brand::before {
+    display: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    background: rgba(167, 139, 250, 0.05);
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.8rem 1.4rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    background: rgba(167, 139, 250, 0.05);
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #a78bfa, #c084fc);
+    transition: width 0.3s ease;
+    box-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+}
+
+.nav-link:hover {
+    background: rgba(167, 139, 250, 0.15);
+    color: #a78bfa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(167, 139, 250, 0.1);
+}
+
+.nav-link:hover::before {
+    width: 80%;
+}
+
+.nav-link.active {
+    background: rgba(167, 139, 250, 0.2);
+    color: white;
+    box-shadow: 0 4px 15px rgba(167, 139, 250, 0.15);
+}
+
+.nav-link.active::before {
+    width: 80%;
+    background: linear-gradient(90deg, #a78bfa, #c084fc);
+}
+
+/* Add margin to main content to account for fixed header */
+main {
+    margin-top: 5rem;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.8rem 1rem;
+        flex-wrap: wrap;
+    }
+
+    .nav-brand {
+        font-size: 1.3rem;
+        gap: 0.4rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .nav-logo {
+        height: 28px;
+    }
+
+    .nav-links {
+        gap: 0.3rem;
+        padding: 0.25rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav-link {
+        padding: 0.5rem 0.7rem;
+        font-size: 0.85rem;
+        min-width: 80px;
+        text-align: center;
+    }
+
+    .dashboard-container {
+        margin-top: 7rem;
+        padding: 0 0.5rem;
+    }
+
+    .dashboard-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .dashboard-header h1 {
+        font-size: 1.6rem;
+        margin-bottom: 0.3rem;
+        line-height: 1.2;
+    }
+
+    .welcome-message {
+        font-size: 0.9rem;
+        line-height: 1.3;
+    }
+
+    .parking-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .info-card {
+        min-width: 100%;
+        max-width: 320px;
+        padding: 1.25rem;
+        margin: 0;
+    }
+
+    .info-card .count {
+        font-size: 2.2rem;
+    }
+
+    .info-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .find-time-btn {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+        margin: 0.3rem 0;
+    }
+
+    .parking-grid {
+        padding: 1.5rem;
+        margin: 1rem 0;
+        border-radius: 12px;
+    }
+
+    .parking-row {
+        gap: 0.4rem;
+        margin-bottom: 0.75rem;
+        flex-wrap: wrap;
+    }
+
+    .parking-spot {
+        padding: 0.8rem 0.4rem;
+        min-height: 70px;
+        font-size: 0.85rem;
+        flex: 1 1 calc(50% - 0.2rem);
+        min-width: 120px;
+    }
+
+    .spot-number {
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .spot-status {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        margin-top: 0.3rem;
+    }
+
+    .road {
+        height: 25px;
+        margin: 1rem 0;
+        border-radius: 3px;
+    }
+
+    .road-markings {
+        height: 3px;
+    }
+
+    /* Mobile-optimized sliding panels */
+    .sliding-panel {
+        width: 100%;
+        right: -100%;
+        border-radius: 0;
+        padding: 1rem;
+    }
+
+    .sliding-panel.active {
+        right: 0;
+    }
+
+    .sliding-panel-header {
+        padding: 0.8rem 0;
+        margin-bottom: 1rem;
+    }
+
+    .sliding-panel-header h2 {
+        font-size: 1.4rem;
+    }
+
+    .sliding-panel-content {
+        padding: 0.5rem 0;
+    }
+
+    .reservation-item {
+        padding: 1rem;
+        margin-bottom: 0.75rem;
+        border-radius: 8px;
+    }
+
+    .vacant-spot-item {
+        padding: 1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .vacant-spot-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .vacant-spot-item p {
+        font-size: 0.95rem;
+        margin: 0.5rem 0;
+    }
+
+    /* Footer mobile optimization */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+        padding: 0 0.5rem;
+    }
+
+    .footer-section {
+        padding: 1rem 0;
+    }
+
+    .footer-section h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .footer-section p {
+        font-size: 0.9rem;
+        margin: 0.4rem 0;
+    }
+
+    .developer-links {
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    .dev-link {
+        width: 180px;
+        justify-content: center;
+        padding: 0.4rem;
+        font-size: 0.9rem;
+    }
+
+    .social-links {
+        gap: 0.8rem;
+        margin-top: 1rem;
+    }
+
+    .social-link {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.6rem 0.8rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .nav-brand {
+        font-size: 1.1rem;
+        gap: 0.3rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .nav-logo {
+        height: 24px;
+    }
+
+    .nav-links {
+        gap: 0.2rem;
+        padding: 0.2rem;
+        width: 100%;
+    }
+
+    .nav-link {
+        padding: 0rem 0.5rem 0rem 0.5rem;
+        font-size: 0.8rem;
+        min-width: 70px;
+    }
+
+    .dashboard-container {
+        margin-top: 8.5rem;
+        padding: 0 0.3rem;
+    }
+
+    .dashboard-header {
+        margin-bottom: 1rem;
+    }
+
+    .dashboard-header h1 {
+        font-size: 1.4rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .welcome-message {
+        font-size: 0.85rem;
+    }
+
+    .parking-info {
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .info-card {
+        padding: 1rem;
+        min-width: 100%;
+        max-width: 280px;
+    }
+
+    .info-card .count {
+        font-size: 2rem;
+    }
+
+    .info-card h3 {
+        font-size: 1rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .find-time-btn {
+        padding: 0.7rem 0.8rem;
+        font-size: 0.85rem;
+        margin: 0.2rem 0;
+    }
+
+    .parking-grid {
+        padding: 1rem;
+        margin: 0.5rem 0;
+    }
+
+    .parking-row {
+        gap: 0.3rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .parking-spot {
+        padding: 0.6rem 0.3rem;
+        min-height: 60px;
+        font-size: 0.8rem;
+        flex: 1 1 calc(50% - 0.15rem);
+        min-width: 100px;
+    }
+
+    .spot-number {
+        font-size: 1rem;
+    }
+
+    .spot-status {
+        font-size: 0.7rem;
+        padding: 0.15rem 0.3rem;
+        margin-top: 0.2rem;
+    }
+
+    .road {
+        height: 20px;
+        margin: 0.8rem 0;
+    }
+
+    .road-markings {
+        height: 2px;
+    }
+
+    /* Extra small screens - single column parking spots */
+    .parking-spot {
+        flex: 1 1 100%;
+        min-width: 100%;
+        margin-bottom: 0.3rem;
+    }
+
+    .sliding-panel {
+        padding: 0.8rem;
+    }
+
+    .sliding-panel-header {
+        padding: 0.6rem 0;
+        margin-bottom: 0.8rem;
+    }
+
+    .sliding-panel-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .sliding-panel-content {
+        padding: 0.3rem 0;
+    }
+
+    .reservation-item {
+        padding: 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .vacant-spot-item {
+        padding: 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .vacant-spot-item h3 {
+        font-size: 1.1rem;
+    }
+
+    .vacant-spot-item p {
+        font-size: 0.9rem;
+        margin: 0.4rem 0;
+    }
+
+    .footer-content {
+        gap: 1rem;
+        padding: 0 0.3rem;
+    }
+
+    .footer-section {
+        padding: 0.8rem 0;
+    }
+
+    .footer-section h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .footer-section p {
+        font-size: 0.85rem;
+        margin: 0.3rem 0;
+    }
+
+    .dev-link {
+        width: 160px;
+        padding: 0.3rem;
+        font-size: 0.85rem;
+    }
+
+    .social-links {
+        gap: 0.6rem;
+        margin-top: 0.8rem;
+    }
+
+    .social-link {
+        font-size: 1.2rem;
+    }
+}
+
+/* Landscape orientation for mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .dashboard-container {
+        margin-top: 6rem;
+    }
+
+    .parking-info {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .info-card {
+        min-width: 200px;
+        max-width: 250px;
+        flex: 1 1 auto;
+    }
+
+    .parking-row {
+        flex-wrap: nowrap;
+    }
+
+    .parking-spot {
+        flex: 1;
+        min-width: auto;
+    }
+}
+
+/* Touch-friendly improvements for mobile devices */
+@media (hover: none) and (pointer: coarse) {
+    .nav-link,
+    .find-time-btn,
+    .reserve-btn,
+    .sliding-panel-close,
+    .parking-spot {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .nav-link:hover,
+    .find-time-btn:hover,
+    .reserve-btn:hover,
+    .info-card:hover {
+        transform: none;
+    }
+
+    .nav-link:active,
+    .find-time-btn:active,
+    .reserve-btn:active {
+        transform: scale(0.98);
+        background-color: rgba(167, 139, 250, 0.3);
+    }
+
+    .info-card:active {
+        transform: scale(0.98);
+    }
+
+    .parking-spot:active {
+        transform: scale(0.95);
+    }
+
+    /* Better touch targets */
+    .sliding-panel-close {
+        padding: 10px;
+        font-size: 28px;
+    }
+
+    .show-more-btn {
+        min-height: 44px;
+        padding: 12px 16px;
+    }
+}
+
+/* Improved accessibility for mobile */
+@media (max-width: 768px) {
+.nav-link:focus,
+.find-time-btn:focus,
+.reserve-btn:focus,
+    .sliding-panel-close:focus,
+    .parking-spot:focus {
+        outline: 3px solid #a78bfa;
+    outline-offset: 2px;
+}
+
+    /* Better contrast for mobile */
+    .info-card {
+        background: rgba(30, 27, 75, 0.9);
+    }
+
+    .parking-grid {
+        background: rgba(30, 27, 75, 0.9);
+    }
+
+    .spot-status {
+        background: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(2px);
+    }
+}
+
+/* Loading states for mobile */
+@media (max-width: 768px) {
+    .loading {
+        padding: 1.5rem;
+    }
+
+    .loading::after {
+        width: 18px;
+        height: 18px;
+        margin-left: 0.4rem;
+    }
+}
+
+/* Mobile-optimized sliding panels */
+    .sliding-panel {
+        width: 100%;
+        right: -100%;
+        border-radius: 0;
+    padding: 1rem;
+    }
+
+    .sliding-panel.active {
+        right: 0;
+    }
+
+.sliding-panel-header {
+    padding: 0.8rem 0;
+    margin-bottom: 1rem;
+}
+
+.sliding-panel-header h2 {
+    font-size: 1.4rem;
+}
+
+.sliding-panel-content {
+    padding: 0.5rem 0;
+}
+
+.reservation-item {
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    border-radius: 8px;
+}
+
+.vacant-spot-item {
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.vacant-spot-item h3 {
+    font-size: 1.2rem;
+}
+
+.vacant-spot-item p {
+    font-size: 0.95rem;
+    margin: 0.5rem 0;
+}
+
+/* Enhanced mobile sliding panel optimization - Smaller overall size */
+@media (max-width: 768px) {
+    .sliding-panel {
+        width: 90%;
+        max-width: 350px;
+        right: -90%;
+        padding: 0.8rem;
+        max-height: 80vh;
+        top: 10vh;
+        border-radius: 12px 0 0 12px;
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .sliding-panel.active {
+        right: 0;
+    }
+
+    .sliding-panel-header {
+        padding: 0.6rem 0;
+        margin-bottom: 0.8rem;
+        position: sticky;
+        top: 0;
+        background: white;
+        z-index: 10;
+        border-bottom: 1px solid #eee;
+    }
+
+    .sliding-panel-header h2 {
+        font-size: 1.1rem;
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    .sliding-panel-close {
+        padding: 6px;
+        font-size: 20px;
+        min-width: 32px;
+        min-height: 32px;
+    }
+
+    .sliding-panel-content {
+        padding: 0.3rem 0;
+        max-height: calc(80vh - 60px);
+        overflow-y: auto;
+    }
+
+    .spot-header {
+        font-size: 1rem;
+        margin-bottom: 0.6rem;
+        padding-bottom: 0.3rem;
+        border-bottom: 1px solid #e3f2fd;
+    }
+
+    .reservation-item {
+        padding: 0.6rem;
+        margin-bottom: 0.5rem;
+        border-radius: 6px;
+    }
+
+    .reservation-date {
+        font-size: 0.9rem;
+        margin-bottom: 0.2rem;
+        font-weight: 600;
+    }
+
+    .reservation-time {
+        font-size: 0.8rem;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        flex-wrap: wrap;
+    }
+
+    .reservation-status {
+        font-size: 0.7rem;
+        padding: 0.15rem 0.5rem;
+        border-radius: 10px;
+        margin-left: auto;
+    }
+
+    .vacant-spot-item {
+        padding: 0.6rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .vacant-spot-item h3 {
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .vacant-spot-item p {
+        font-size: 0.8rem;
+        margin: 0.2rem 0;
+        line-height: 1.2;
+    }
+
+    .vacant-spot-item .reserve-btn {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+        margin-top: 0.6rem;
+    }
+
+    .no-reservations {
+        padding: 1rem;
+        text-align: center;
+        font-size: 0.8rem;
+    }
+
+    .suggestion-item {
+        padding: 0.6rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .suggestion-item h3 {
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .suggestion-item p {
+        font-size: 0.8rem;
+        margin: 0.2rem 0;
+        line-height: 1.2;
+    }
+
+    .suggestion-item .reserve-btn {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+    }
+
+    .show-more-btn {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+        margin: 0.3rem 0;
+    }
+
+    .more-suggestions {
+        gap: 0.4rem;
+        margin-top: 0.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sliding-panel {
+        width: 85%;
+        max-width: 300px;
+        right: -85%;
+        padding: 0.6rem;
+        max-height: 75vh;
+        top: 12.5vh;
+        border-radius: 10px 0 0 10px;
+    }
+
+    .sliding-panel.active {
+        right: 0;
+    }
+
+    .sliding-panel-header {
+        padding: 0.4rem 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .sliding-panel-header h2 {
+        font-size: 1rem;
+    }
+
+    .sliding-panel-close {
+        padding: 4px;
+        font-size: 18px;
+        min-width: 28px;
+        min-height: 28px;
+    }
+
+    .sliding-panel-content {
+        padding: 0.2rem 0;
+        max-height: calc(75vh - 50px);
+    }
+
+    .spot-header {
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+        padding-bottom: 0.2rem;
+    }
+
+    .reservation-item {
+        padding: 0.4rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .reservation-date {
+        font-size: 0.85rem;
+        margin-bottom: 0.15rem;
+    }
+
+    .reservation-time {
+        font-size: 0.75rem;
+        gap: 0.2rem;
+    }
+
+    .reservation-status {
+        font-size: 0.65rem;
+        padding: 0.1rem 0.4rem;
+    }
+
+    .vacant-spot-item {
+        padding: 0.4rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .vacant-spot-item h3 {
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .vacant-spot-item p {
+        font-size: 0.75rem;
+        margin: 0.15rem 0;
+    }
+
+    .vacant-spot-item .reserve-btn {
+        padding: 0.4rem;
+        font-size: 0.75rem;
+        margin-top: 0.4rem;
+    }
+
+    .no-reservations {
+        padding: 0.8rem;
+        font-size: 0.75rem;
+    }
+
+    .suggestion-item {
+        padding: 0.4rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .suggestion-item h3 {
+        font-size: 0.85rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .suggestion-item p {
+        font-size: 0.75rem;
+        margin: 0.15rem 0;
+    }
+
+    .suggestion-item .reserve-btn {
+        padding: 0.4rem;
+        font-size: 0.75rem;
+        margin-top: 0.4rem;
+    }
+
+    .show-more-btn {
+        padding: 0.4rem;
+        font-size: 0.75rem;
+        margin: 0.2rem 0;
+    }
+
+    .more-suggestions {
+        gap: 0.3rem;
+        margin-top: 0.2rem;
+    }
+}
+
+/* Sliding panel base styles - Smaller for all viewports */
+.sliding-panel {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background: white;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+    padding: 20px;
+    overflow-y: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: right 0.3s ease-in-out, visibility 0s linear 0.3s, opacity 0.3s ease-in-out;
+}
+
+.sliding-panel.active {
+    right: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: right 0.3s ease-in-out, visibility 0s linear 0s, opacity 0.3s ease-in-out;
+}
+
+/* Desktop optimization - Smaller panel */
+@media (min-width: 769px) {
+    .sliding-panel {
+        width: 350px;
+        max-width: 350px;
+        right: -350px;
+        max-height: 80vh;
+        top: 10vh;
+        border-radius: 12px 0 0 12px;
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+        padding: 1.2rem;
+    }
+
+    .sliding-panel.active {
+        right: 0;
+    }
+
+    .sliding-panel-header {
+        padding: 0.8rem 0;
+        margin-bottom: 1rem;
+        position: sticky;
+        top: 0;
+        background: white;
+        z-index: 10;
+        border-bottom: 1px solid #eee;
+    }
+
+    .sliding-panel-header h2 {
+        font-size: 1.3rem;
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    .sliding-panel-close {
+        padding: 8px;
+        font-size: 22px;
+        min-width: 36px;
+        min-height: 36px;
+    }
+
+    .sliding-panel-content {
+        padding: 0.5rem 0;
+        max-height: calc(80vh - 80px);
+        overflow-y: auto;
+    }
+
+    .spot-header {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #e3f2fd;
+    }
+
+    .reservation-item {
+        padding: 0.8rem;
+        margin-bottom: 0.8rem;
+        border-radius: 8px;
+    }
+
+    .reservation-date {
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
+        font-weight: 600;
+    }
+
+    .reservation-time {
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .reservation-status {
+        font-size: 0.8rem;
+        padding: 0.2rem 0.6rem;
+        border-radius: 12px;
+        margin-left: auto;
+    }
+
+    .vacant-spot-item {
+        padding: 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .vacant-spot-item h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .vacant-spot-item p {
+        font-size: 0.9rem;
+        margin: 0.4rem 0;
+        line-height: 1.3;
+    }
+
+    .vacant-spot-item .reserve-btn {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+        margin-top: 0.8rem;
+    }
+
+    .no-reservations {
+        padding: 1.5rem;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    .suggestion-item {
+        padding: 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .suggestion-item h3 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .suggestion-item p {
+        font-size: 0.9rem;
+        margin: 0.4rem 0;
+        line-height: 1.3;
+    }
+
+    .suggestion-item .reserve-btn {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+        margin-top: 0.7rem;
+    }
+
+    .show-more-btn {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+        margin: 0.5rem 0;
+    }
+
+    .more-suggestions {
+        gap: 0.8rem;
+        margin-top: 0.5rem;
+    }
+}
+
+/* Tablet optimization - Medium size panel */
+@media (min-width: 481px) and (max-width: 768px) {
+    .sliding-panel {
+        width: 320px;
+        max-width: 320px;
+        right: -320px;
+        max-height: 75vh;
+        top: 12.5vh;
+        border-radius: 10px 0 0 10px;
+        box-shadow: -3px 0 15px rgba(0, 0, 0, 0.25);
+        padding: 1rem;
+    }
+
+    .sliding-panel.active {
+        right: 0;
+    }
+
+    .sliding-panel-header {
+        padding: 0.7rem 0;
+        margin-bottom: 0.8rem;
+        position: sticky;
+        top: 0;
+        background: white;
+        z-index: 10;
+        border-bottom: 1px solid #eee;
+    }
+
+    .sliding-panel-header h2 {
+        font-size: 1.2rem;
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    .sliding-panel-close {
+        padding: 7px;
+        font-size: 21px;
+        min-width: 34px;
+        min-height: 34px;
+    }
+
+    .sliding-panel-content {
+        padding: 0.4rem 0;
+        max-height: calc(75vh - 70px);
+        overflow-y: auto;
+    }
+
+    .spot-header {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+        padding-bottom: 0.4rem;
+        border-bottom: 1px solid #e3f2fd;
+    }
+
+    .reservation-item {
+        padding: 0.7rem;
+        margin-bottom: 0.7rem;
+        border-radius: 7px;
+    }
+
+    .reservation-date {
+        font-size: 0.95rem;
+        margin-bottom: 0.3rem;
+        font-weight: 600;
+    }
+
+    .reservation-time {
+        font-size: 0.85rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        flex-wrap: wrap;
+    }
+
+    .reservation-status {
+        font-size: 0.75rem;
+        padding: 0.15rem 0.55rem;
+        border-radius: 11px;
+        margin-left: auto;
+    }
+
+    .vacant-spot-item {
+        padding: 0.7rem;
+        margin-bottom: 0.7rem;
+    }
+
+    .vacant-spot-item h3 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .vacant-spot-item p {
+        font-size: 0.85rem;
+        margin: 0.3rem 0;
+        line-height: 1.25;
+    }
+
+    .vacant-spot-item .reserve-btn {
+        padding: 0.6rem;
+        font-size: 0.85rem;
+        margin-top: 0.7rem;
+    }
+
+    .no-reservations {
+        padding: 1.3rem;
+        text-align: center;
+        font-size: 0.85rem;
+    }
+
+    .suggestion-item {
+        padding: 0.7rem;
+        margin-bottom: 0.7rem;
+    }
+
+    .suggestion-item h3 {
+        font-size: 0.95rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .suggestion-item p {
+        font-size: 0.85rem;
+        margin: 0.3rem 0;
+        line-height: 1.25;
+    }
+
+    .suggestion-item .reserve-btn {
+        padding: 0.6rem;
+        font-size: 0.85rem;
+        margin-top: 0.6rem;
+    }
+
+    .show-more-btn {
+        padding: 0.6rem;
+        font-size: 0.85rem;
+        margin: 0.4rem 0;
+    }
+
+    .more-suggestions {
+        gap: 0.6rem;
+        margin-top: 0.4rem;
+    }
+}

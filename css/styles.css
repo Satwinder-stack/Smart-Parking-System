@@ -1,0 +1,408 @@
+/* General styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2c3e50;
+    min-height: 100vh;
+}
+
+/* Navigation styles */
+.navbar {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    padding: 1.2rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-brand {
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0.5rem 1.2rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.nav-brand:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-link {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.nav-link.active {
+    background: #3498db;
+    color: white;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.nav-link.active:hover {
+    background: #2980b9;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1.2rem 1.5rem;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .nav-brand {
+        font-size: 1.6rem;
+        gap: 0.6rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .nav-links {
+        gap: 0.5rem;
+        padding: 0.4rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav-link {
+        padding: 1.2rem 2rem 1.2rem 2rem;
+        font-size: 1rem;
+        min-width: 160px;
+        text-align: center;
+    }
+}
+
+/* Tablet responsive styles */
+@media (max-width: 820px) {
+    .navbar {
+        padding: 1.2rem 1.5rem;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .nav-brand {
+        font-size: 1.6rem;
+        gap: 0.6rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .nav-links {
+        gap: 0.5rem;
+        padding: 0.4rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav-link {
+        padding: 1.2rem 2rem 1.2rem 2rem;
+        font-size: 1rem;
+        min-width: 160px;
+        text-align: center;
+    }
+}
+
+/* Animation for active link */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(52, 152, 219, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    }
+}
+
+.nav-link.active {
+    animation: glow 2s infinite;
+}
+
+/* Authentication styles */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.auth-box {
+    background-color: #34495e;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-box h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    color: white;
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #2c3e50;
+    color: white;
+}
+
+.form-group input:focus {
+    outline: 2px solid #3498db;
+}
+
+.auth-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.auth-button:hover {
+    background-color: #2980b9;
+}
+
+.auth-links {
+    text-align: center;
+    margin-top: 1rem;
+    color: white;
+}
+
+.auth-links a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+/* Container for the fieldsets */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #34495e;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Style for each line of fieldsets */
+.line {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    position: relative;
+}
+
+/* Road styling */
+.line:first-child::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #7f8c8d;
+    z-index: 1;
+}
+
+/* Road markings */
+.line:first-child::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 25px;
+    width: 100%;
+    height: 4px;
+    background: repeating-linear-gradient(
+        to right,
+        #fff 0,
+        #fff 50px,
+        transparent 50px,
+        transparent 100px
+    );
+    z-index: 2;
+}
+
+/* Fieldset styling */
+fieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    flex: 1;
+    min-width: 100px;
+    padding-top: 5em;
+    padding-bottom: 5em;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    background-color: #ecf0f1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+    position: relative;
+    z-index: 3;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+fieldset:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #bdc3c7;
+}
+
+/* Parking spot numbers */
+fieldset::before {
+    content: 'P';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    font-size: 0.8em;
+    color: #7f8c8d;
+}
+
+/* Different colors for each row */
+.f1 {
+    background-color: #e74c3c;
+    color: white;
+    margin-bottom: 4em;
+}
+
+.f2 {
+    background-color: #2ecc71;
+    color: white;
+    margin-top: 3em;
+}
+
+/* Header styling */
+header {
+    background-color: #2c3e50;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    color: white;
+    text-align: center;
+    margin: 0;
+}
+
+/* Footer styling */
+footer {
+    background-color: #2c3e50;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+}
+
+/* Add these new styles to your existing CSS file */
+
+.error-message {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.welcome-text {
+    color: white;
+    margin-right: 1rem;
+}
+
+.spot-form {
+    margin-top: 10px;
+}
+
+.spot-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.spot-button:hover {
+    background-color: #2980b9;
+}
+
+/* Status indicators */
+.available {
+    background-color: #2ecc71;
+}
+
+.occupied {
+    background-color: #e74c3c;
+}

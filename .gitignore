@@ -1,0 +1,38 @@
+# PHP error logs
+php_errors.log
+*.log
+
+# Configuration files with sensitive data
+config.php
+
+# Uploaded files (if you don't want to track them)
+uploads/*
+!uploads/.gitkeep
+
+# Temporary files
+*.tmp
+*.temp
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Database files
+*.sql
+*.db
+
+# Environment files
+.env
+.env.local
+.env.production 
