@@ -138,10 +138,11 @@ class Database {
 
 // class Database {
 //     // REPLACE THESE WITH YOUR ACTUAL INFINITYFREE CREDENTIALS
-//     private $host = "sql102.infinityfree.com"; // Found in MySQL Databases section
-//     private $db_name = "if0_41224861_parking_system"; // The full DB name created
-//     private $username = "if0_41224861"; // Your Account Username
-//     private $password = "satwinder09"; // Your Account Password
+//      I've removed the details here for anyone viewing this for privacy purposes
+//     private $host = ""; // Found in MySQL Databases section
+//     private $db_name = ""; // The full DB name created
+//     private $username = ""; // Your Account Username
+//     private $password = ""; // Your Account Password
 //     public $conn;
 
 //     public function getConnection() {
