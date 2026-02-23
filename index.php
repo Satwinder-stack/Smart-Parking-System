@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Asia/Manila');
 require_once 'config/session.php';
 requireLogin();
 
@@ -33,6 +34,8 @@ $query = "UPDATE parking_spots SET status = 'available', user_id = NULL, entry_t
 $stmt = $db->prepare($query);
 $stmt->execute();
 
+$current_date_php = date('Y-m-d');
+$current_time_php = date('H:i:s');
 // Get parking spots with their current status and reservations
 $query = "SELECT a.*, 
           CASE 
@@ -41,10 +44,10 @@ $query = "SELECT a.*,
                   WHERE o.spot_id = a.id 
                   AND o.status != 'completed'
                   AND (
-                      (o.reservation_date = CURDATE() AND CURTIME() BETWEEN o.start_time AND o.end_time)
-                      OR (o.reservation_date < CURDATE() AND o.end_date >= CURDATE() AND CURTIME() <= o.end_time)
-                      OR (o.reservation_date = CURDATE() AND o.start_time > o.end_time AND CURTIME() >= o.start_time)
-                      OR (o.reservation_date = CURDATE() AND o.start_time > o.end_time AND CURTIME() <= o.end_time)
+                      (o.reservation_date = :cur_date AND :cur_time BETWEEN o.start_time AND o.end_time)
+                      OR (o.reservation_date < :cur_date AND o.end_date >= :cur_date AND :cur_time <= o.end_time)
+                      OR (o.reservation_date = :cur_date AND o.start_time > o.end_time AND :cur_time >= o.start_time)
+                      OR (o.reservation_date = :cur_date AND o.start_time > o.end_time AND :cur_time <= o.end_time)
                   )
               ) THEN 'occupied'
               WHEN EXISTS (
@@ -52,9 +55,9 @@ $query = "SELECT a.*,
                   WHERE o.spot_id = a.id 
                   AND o.status = 'reserved'
                   AND (
-                      o.reservation_date > CURDATE()
-                      OR (o.reservation_date = CURDATE() AND o.start_time > CURTIME())
-                      OR (o.reservation_date < CURDATE() AND o.end_date >= CURDATE())
+                      o.reservation_date > :cur_date
+                      OR (o.reservation_date = :cur_date AND o.start_time > :cur_time)
+                      OR (o.reservation_date < :cur_date AND o.end_date >= :cur_date)
                   )
               ) THEN 'reserved'
               ELSE 'available'
@@ -71,10 +74,10 @@ $query = "SELECT a.*,
                       TIME_FORMAT(o.end_time, '%H:%i'),
                       '|',
                       CASE 
-                          WHEN (o.reservation_date = CURDATE() AND CURTIME() BETWEEN o.start_time AND o.end_time) OR
-                               (o.reservation_date < CURDATE() AND o.end_date >= CURDATE() AND CURTIME() <= o.end_time) OR
-                               (o.reservation_date = CURDATE() AND o.start_time > o.end_time AND CURTIME() >= o.start_time) OR
-                               (o.reservation_date = CURDATE() AND o.start_time > o.end_time AND CURTIME() <= o.end_time)
+                          WHEN (o.reservation_date = :cur_date AND :cur_time BETWEEN o.start_time AND o.end_time) OR
+                               (o.reservation_date < :cur_date AND o.end_date >= :cur_date AND :cur_time <= o.end_time) OR
+                               (o.reservation_date = :cur_date AND o.start_time > o.end_time AND :cur_time >= o.start_time) OR
+                               (o.reservation_date = :cur_date AND o.start_time > o.end_time AND :cur_time <= o.end_time)
                           THEN 'ongoing'
                           ELSE o.status
                       END
@@ -84,15 +87,19 @@ $query = "SELECT a.*,
               WHERE o.spot_id = a.id
               AND o.status IN ('reserved', 'ongoing')
               AND (
-                  o.reservation_date > CURDATE()
-                  OR (o.reservation_date = CURDATE() AND o.end_time > CURTIME())
-                  OR (o.reservation_date < CURDATE() AND o.end_date >= CURDATE())
-                  OR (o.reservation_date = CURDATE() AND o.start_time > o.end_time)
+                  o.reservation_date > :cur_date
+                  OR (o.reservation_date = :cur_date AND o.end_time > :cur_time)
+                  OR (o.reservation_date < :cur_date AND o.end_date >= :cur_date)
+                  OR (o.reservation_date = :cur_date AND o.start_time > o.end_time)
               )
           ) as reservations
           FROM available_spots a
           ORDER BY CAST(SUBSTRING(a.spot_number, 2) AS UNSIGNED)";
+
+          
 $stmt = $db->prepare($query);
+$stmt->bindParam(':cur_date', $current_date_php);
+$stmt->bindParam(':cur_time', $current_time_php);
 $stmt->execute();
 $parking_spots = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
