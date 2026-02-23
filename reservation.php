@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Asia/Manila'); // Add this at the very top
 require_once 'config/session.php';
 
 // Redirect if not logged in
@@ -194,44 +195,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // Get user's active reservations
 $user_id = $_SESSION['user_id'];
 
+$current_date_php = date('Y-m-d');
+$current_time_php = date('H:i:s');
 // Update occupied spots status
 $update_status_query = "UPDATE occupied_spots o
     JOIN available_spots a ON o.spot_id = a.id
     SET o.status = CASE 
-        WHEN (o.reservation_date < CURDATE() OR 
-             (o.reservation_date = CURDATE() AND o.end_time < CURTIME() AND o.end_date <= CURDATE()) OR
-             (o.end_date < CURDATE()))
+        WHEN (o.reservation_date < :cur_date OR 
+             (o.reservation_date = :cur_date AND o.end_time < :cur_time AND o.end_date <= :cur_date) OR
+             (o.end_date < :cur_date))
         THEN 'completed'
-        WHEN (o.reservation_date = CURDATE() AND CURTIME() BETWEEN o.start_time AND o.end_time) OR
-             (o.reservation_date < CURDATE() AND o.end_date >= CURDATE() AND CURTIME() <= o.end_time) OR
-             (o.reservation_date = CURDATE() AND o.start_time > o.end_time AND CURTIME() >= o.start_time) OR
-             (o.reservation_date = CURDATE() AND o.start_time > o.end_time AND CURTIME() <= o.end_time)
+        WHEN (o.reservation_date = :cur_date AND :cur_time BETWEEN o.start_time AND o.end_time) OR
+             (o.reservation_date < :cur_date AND o.end_date >= :cur_date AND :cur_time <= o.end_time) OR
+             (o.reservation_date = :cur_date AND o.start_time > o.end_time AND :cur_time >= o.start_time) OR
+             (o.reservation_date = :cur_date AND o.start_time > o.end_time AND :cur_time <= o.end_time)
         THEN 'ongoing'
         ELSE 'reserved'
     END,
     a.status = CASE 
-        WHEN (o.reservation_date < CURDATE() OR 
-             (o.reservation_date = CURDATE() AND o.end_time < CURTIME() AND o.end_date <= CURDATE()) OR
-             (o.end_date < CURDATE()))
+        WHEN (o.reservation_date < :cur_date OR 
+             (o.reservation_date = :cur_date AND o.end_time < :cur_time AND o.end_date <= :cur_date) OR
+             (o.end_date < :cur_date))
         THEN 'available'
         ELSE 'occupied'
     END
     WHERE o.user_id = :user_id AND o.status IN ('reserved', 'ongoing')";
+
 $update_stmt = $db->prepare($update_status_query);
 $update_stmt->bindParam(":user_id", $user_id);
+$update_stmt->bindParam(":cur_date", $current_date_php);
+$update_stmt->bindParam(":cur_time", $current_time_php);
 $update_stmt->execute();
 
 // Get user's reservations
 $reservations_query = "SELECT o.*, a.spot_number, u.username,
                       CASE 
-                          WHEN (o.reservation_date < CURDATE() OR 
-                               (o.reservation_date = CURDATE() AND o.end_time < CURTIME() AND o.end_date <= CURDATE()) OR
-                               (o.end_date < CURDATE()))
+                          WHEN (o.reservation_date < :cur_date OR 
+                               (o.reservation_date = :cur_date AND o.end_time < :cur_time AND o.end_date <= :cur_date) OR
+                               (o.end_date < :cur_date))
                           THEN 'completed'
-                          WHEN (o.reservation_date = CURDATE() AND CURTIME() BETWEEN o.start_time AND o.end_time) OR
-                               (o.reservation_date < CURDATE() AND o.end_date >= CURDATE() AND CURTIME() <= o.end_time) OR
-                               (o.reservation_date = CURDATE() AND o.start_time > o.end_time AND CURTIME() >= o.start_time) OR
-                               (o.reservation_date = CURDATE() AND o.start_time > o.end_time AND CURTIME() <= o.end_time)
+                          WHEN (o.reservation_date = :cur_date AND :cur_time BETWEEN o.start_time AND o.end_time) OR
+                               (o.reservation_date < :cur_date AND o.end_date >= :cur_date AND :cur_time <= o.end_time) OR
+                               (o.reservation_date = :cur_date AND o.start_time > o.end_time AND :cur_time >= o.start_time) OR
+                               (o.reservation_date = :cur_date AND o.start_time > o.end_time AND :cur_time <= o.end_time)
                           THEN 'ongoing'
                           ELSE 'reserved'
                       END as current_status
@@ -240,8 +246,11 @@ $reservations_query = "SELECT o.*, a.spot_number, u.username,
                       JOIN users u ON o.user_id = u.id 
                       WHERE o.user_id = :user_id 
                       ORDER BY o.reservation_date DESC, o.start_time DESC";
+                      
 $reservations_stmt = $db->prepare($reservations_query);
 $reservations_stmt->bindParam(":user_id", $user_id);
+$reservations_stmt->bindParam(":cur_date", $current_date_php);
+$reservations_stmt->bindParam(":cur_time", $current_time_php);
 $reservations_stmt->execute();
 $user_reservations = $reservations_stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
