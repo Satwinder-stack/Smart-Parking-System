@@ -1,15 +1,34 @@
-Author: Satwinder Jeerh
-<br>
-Role: Developer
-<br>
-<br>
-This is a fully functional web-based system where users can avail & reserve spots in a parking area at specific time they want freely. It updates real-time and allows customer to know specific spots in advance. It also allows the customer to reserve a whole spot for up to a whole day. There are also rules in-between availing or reserving a spot whether it would be reserving a spot 10 minutes after a customer just used it - which is not allowed. Or simply if a customer doesn't remove their car from that parking spot after their time is up, the physical staff will be handling the matter. Future implementations will still be added to satisfy each and every consumer needs.
-<br>
-<br>
-PURPOSE
-<br>
-Developing a high-efficiency intelligent parking solution using real-time update of parking spots using reservations and real-time spots update. This reduces parking area congestion and allows users to know in advance if there's an open spot for reservation without going directly to the place.
+## Author
+**Satwinder Jeerh**  
+**Role:** Developer  
 
+---
 
+## Overview
+This project is a **fully functional web-based parking reservation system** that allows users to **view, avail, and reserve parking spots at specific times**. The system provides **real-time updates**, enabling users to check available parking spaces in advance before arriving at the location.
 
-All rights to the system, its design, and implementation are protected under copyright law. © All Rights Reserved.
+Users can reserve a parking space for a selected time period, including **reservations that last up to an entire day**. The system is designed to provide convenience, improve parking efficiency, and help drivers avoid unnecessary searching for available spaces.
+
+To maintain fairness and efficiency, the system enforces several rules:
+- A parking spot **cannot be reserved immediately after being used** (e.g., reserving the same spot within 10 minutes is not allowed).
+- If a user **fails to remove their vehicle after their reservation time ends**, the **on-site staff will handle the situation** accordingly.
+
+Future improvements and additional features will continue to be implemented to better serve users and enhance the overall parking experience.
+
+---
+
+## Purpose
+The purpose of this project is to **develop a high-efficiency intelligent parking solution** that uses **real-time parking availability and reservation management**.
+
+By allowing users to check and reserve parking spaces ahead of time, the system helps:
+- Reduce **parking congestion**
+- Improve **parking space management**
+- Allow drivers to **know in advance whether a parking spot is available**
+
+This creates a **more efficient and convenient parking experience** for both users and parking facility operators.
+
+---
+
+## Copyright
+© All Rights Reserved.  
+The system, including its **design, implementation, and source code**, is protected under copyright law.
