@@ -7,5 +7,8 @@ This is a fully functional web-based system where users can avail & reserve spot
 <br>
 <br>
 PURPOSE
+Developing a high-efficiency intelligent parking solution using real-time update of parking spots using reservations and real-time spots update. This reduces parking area congestion and allows users to know in advance if there's an open spot for reservation without going directly to the place.
+
+
 
 All rights to the system, its design, and implementation are protected under copyright law. © All Rights Reserved.
